@@ -1,0 +1,32 @@
+{
+  "1618705954391": {
+    "nom": "pat",
+    "email": "pat@test.com",
+    "password": "pat2021"
+  },
+  "1618706093085": {
+    "nom": "willy",
+    "email": "will@test.com",
+    "password": "will2021"
+  },
+  "1618709381665": {
+    "nom": "mia",
+    "email": "mia@test.com",
+    "password": "$2b$10$RFaJOreok0hV4soQG/DSTOnfofS2O24vVkWiXsTJTkBlIyNXzxheq"
+  },
+  "1618751357204": {
+    "nom": "pablo",
+    "email": "pablo@test.com",
+    "password": "$2b$10$7UJEcIgiR4VlIssIEotFq.sSwNbqZ0n8af0XaRZFG.SikefFftn2C"
+  },
+  "1618756119557": {
+    "nom": "papy",
+    "email": "papy@test.com",
+    "password": "$2b$10$3S0svr4IeO0SsO4.0jRB9eJbWhuWCNn3dU.VmbfAnpKoLfo0.UmZm"
+  },
+  "1618766670787": {
+    "nom": "jordan",
+    "email": "jordan@test.com",
+    "password": "$2b$10$p9yTWDXCmW5Lz6.1lLPgW.LGQcxfZXJ/ssN9sLtlLlKkjz6HYkgqy"
+  }
+}

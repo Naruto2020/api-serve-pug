@@ -1,0 +1,34 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(http-equiv='X-UA-Compatible' content='IE=edge')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Pact_App
+  // Bootstrap core CSS
+  link(rel='stylesheet' href='/vendor/bootstrap/css/bootstrap.min.css')
+  link(rel='stylesheet' href='/assets/css/style.css')
+#featured-3.container.py-5
+  h2.pb-2.border-bottom Bienvenu sur Pact_App
+  p.start
+    | connectez vous  &#xF63A; sinon inscrivez vous
+    a(href='/create')
+      |  SingUp
+  .row.g-5.py-5
+    .feature.col-md-4
+      main.form-signin
+        form(action="/login" method="Post")
+          //img.mb-4(src='/docs/5.0/assets/brand/bootstrap-logo.svg' alt='' width='72' height='57')
+          h1.h3.mb-3.fw-normal Please sign In
+          .form-floating
+            input#floatingInput.form-control(type='email' name="email" placeholder='name@example.com')
+            label(for='floatingInput') Email address
+            p(style="color: red")= mess1
+            p(style="color: red")= mess4
+          .form-floating
+            input#floatingPassword.form-control(type='password' name="password" placeholder='Password')
+            label(for='floatingPassword') Password
+            p(style="color: red")= mess2
+            p(style="color: red")= mess3
+            p(style="color: red")= mess5
+          button.w-100.btn.btn-lg.btn-primary(type='submit') Sign in
+          p.mt-5.mb-3.text-muted &copy; 2021

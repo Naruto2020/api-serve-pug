@@ -1,0 +1,14 @@
+.start {
+  font-style: oblique;
+  color: blue;
+}
+
+.mb-3 {
+  font-style: oblique;
+  color: blue;
+}
+
+/*nav bar */
+.bg-dark {
+  background-color: #673ab7 !important;
+}
