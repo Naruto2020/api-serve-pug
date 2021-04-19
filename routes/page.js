@@ -1,8 +1,10 @@
 const jwt = require("jsonwebtoken");
 require("dotenv").config({path : "./config/.env"});
 
+const checkAuth = require('../midleware/authMidleware');
+
 // initialise of the duration of the token
-const maxlife = 60000; // en miliseconde equivaut à 1 min
+const maxlife = 60; // en seconde equivaut à 1 min
 const createToken = (nom)=>{
     return jwt.sign({nom}, process.env.TOKEN_SECRET, {
         expiresIn : maxlife,
@@ -56,7 +58,7 @@ const pageRoutes = (app, fs) => {
     });
 
     // display home page 
-    app.get("/restricted", (req, res)=>{
+    app.get("/restricted", checkAuth, (req, res)=>{
         const {email, password} = req.body;
         readFile(data => {
             let authenticated;
@@ -84,13 +86,15 @@ const pageRoutes = (app, fs) => {
            let user = myUsers[0];
 
             // page restriction
-            if(user && user.email === email && user.password === password){
+            /*if(user && user.email === email && user.password === password){
                 const token = createToken(user.nom);
                 res.cookie('jwt', token, {httpOnly: true, sameSite:true, maxlife});
                 if(token)
                   authenticated = true;
-            }
+                
+            }*/
             res.render("home");
+            
 
         }, true);
     });

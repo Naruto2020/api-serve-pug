@@ -4,7 +4,7 @@ const saltRounds = 10;
 const jwt = require("jsonwebtoken");
 require("dotenv").config({path : "./config/.env"});
 // initialise of the duration of the token
-const maxlife = 60000; // en miliseconde equivaut à 1 min
+const maxlife = 60; // en seconde equivaut à 1 min
 const createToken = (nom)=>{
     return jwt.sign({nom}, process.env.TOKEN_SECRET, {
         expiresIn : maxlife,
@@ -151,7 +151,7 @@ const userRoutes = (app, fs) => {
                return e.email === email
            });
            let user = myUsers[0];
-           let authenticated;
+           let authenticated = false;
 
            if(!email && !password){
                 res.render("singIn", 
@@ -177,10 +177,13 @@ const userRoutes = (app, fs) => {
                     res.cookie('jwt', token, {httpOnly: true, sameSite:true, maxlife});
                     //res.status(200).json({ user: user.nom});
                     console.log("connecter")
-                    if(token)
-                    authenticated = true;
-                    res.render("home", {authenticated:authenticated, utilisateur : user.nom});
-                    
+                    if(token){
+                        authenticated = true;
+                        //res.redirect("/restricted");
+                        res.render("home", {authenticated:authenticated, utilisateur : user.nom});
+                        //res.status(200).json("succes!")
+                    }
+                      
                 }else{
                     console.log("mot de passe incorrecte!")
                     res.render("singIn", {mess5 : "mot de passe incorect!"});
