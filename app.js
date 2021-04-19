@@ -3,12 +3,25 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const pug = require('pug');
 require("dotenv").config({path : "./config/.env"});
+const cors = require("cors");
 
 // create an instance of express 
 const app = express();
 
 // load up file system helper library here use to serve our JSON files 
 const fs = require('fs');
+
+// Cors
+const corsOptions = {
+    origin: process.env.CLIENT_URL,
+    credentials: true,
+    'allowedHeaders': ['sessionId', 'Content-Type'],
+    'exposedHeaders': ['sessionId'],
+    'methods': 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    'preflightContinue': false
+}
+
+app.use(cors(corsOptions));
 
 // declare pug files 
 app.set("view engine", "pug");
