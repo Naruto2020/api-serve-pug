@@ -39,3 +39,51 @@ script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap
 script(src="https://code.jquery.com/jquery-3.6.0.min.js"
   integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
   crossorigin="anonymous")
+
+script. 
+
+
+  // Configuration requête
+  const urlApi = "http://127.0.0.1:3000/jwtid";
+  const methode = "GET";
+  
+   // Création de la requête (AJAX)
+  const promesseDeJwt = fetch(urlApi, { method: "GET" });
+
+  promesseDeJwt
+    .then((reponse) => {
+
+      const { body, status } = reponse; // affectation par décomposition
+      if (status >= 200 && status < 300) {
+        console.log(body); // ReadableStream
+        const promesseDeDonnees = reponse.json();
+        return promesseDeDonnees; // chaînage de promesse (renvoi de promesse depuis la méthode .then() d'une autre promesse)
+      }
+    })
+    .then((donnees) => {
+      const  results  = donnees;
+      //localStorage.setItem('token', results);
+      //let token = localStorage.getItem(results);
+      const exp  = results.exp;
+      const expirationTime = (exp * 1000) - 60000;
+      //console.log("client",results);
+      console.log(exp);
+      if (results){
+        setTimeout(function () {
+          console.log('logout');
+          localStorage.clear();
+          console.log(localStorage);
+          window.location = "http://127.0.0.1:3000/restricted";
+        }, 60000);
+      }
+      
+    })
+    .catch((erreur) => {
+      console.log("ERREUR", erreur);
+    });
+
+
+  
+
+
+ 
