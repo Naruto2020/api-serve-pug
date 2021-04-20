@@ -64,10 +64,18 @@ script.
       const  results  = donnees;
       //localStorage.setItem('token', results);
       //let token = localStorage.getItem(results);
-      const exp  = results.exp;
-      const expirationTime = (exp * 1000) - 60000;
+      const jwt_exp  = results.exp ;
+      //const expirationTime = (exp * 1000) - 60000;
       //console.log("client",results);
-      console.log(exp);
+      let currentTime = Date.now()  ;
+      console.log("time",currentTime);
+      console.log("jwt-exp : ",jwt_exp);
+      /*if(jwt_exp  < currentTime){
+        console.log('logout');
+        console.log(localStorage);
+        localStorage.clear();
+        window.location = "http://127.0.0.1:3000/restricted";
+      }*/
       if (results){
         setTimeout(function () {
           console.log('logout');

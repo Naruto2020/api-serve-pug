@@ -5,7 +5,7 @@ const checkAuth = require('../midleware/authMidleware').checkAuth;
 const requireAuth = require('../midleware/authMidleware').requireAuth;
 
 // initialise of the duration of the token
-const maxlife = 60000; // en miliseconde equivaut à 1 min
+const maxlife = 60; // en seconde equivaut à 1 min
 const createToken = (nom)=>{
     return jwt.sign({nom}, process.env.TOKEN_SECRET, {
         expiresIn : maxlife,
