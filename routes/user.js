@@ -164,7 +164,7 @@ const userRoutes = (app, fs) => {
                     mess1 : "le champ email n'est pas  remplis... ",
                     mess2 : "le champ password n'est pas  remplis... "
                 });*/
-           }else if( !password  ){
+           }else if( !password && email ){
                 res.render("singIn", {mess3 : "* veillez remplir tous les  champs s'il vous plait. "});
            }
 
