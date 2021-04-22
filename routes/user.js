@@ -157,12 +157,14 @@ const userRoutes = (app, fs) => {
            let authenticated = false;
 
            if(!email && !password){
-                res.render("singIn", 
+               console.log("erreur");
+               
+                /*res.render("singIn", 
                 {
                     mess1 : "le champ email n'est pas  remplis... ",
                     mess2 : "le champ password n'est pas  remplis... "
-                });
-           }else if(!email || !password){
+                });*/
+           }else if( !password  ){
                 res.render("singIn", {mess3 : "* veillez remplir tous les  champs s'il vous plait. "});
            }
 

@@ -28,5 +28,10 @@
     "nom": "jordan",
     "email": "jordan@test.com",
     "password": "$2b$10$p9yTWDXCmW5Lz6.1lLPgW.LGQcxfZXJ/ssN9sLtlLlKkjz6HYkgqy"
+  },
+  "1619084603302": {
+    "nom": "papito",
+    "email": "papito@test.com",
+    "password": "$2b$10$TUoL24PZ0VwBXh84ptreR.qsF3e5CeN2U1Wotca1bZWuYGbVyDskm"
   }
 }
